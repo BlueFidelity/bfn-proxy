@@ -1,19 +1,32 @@
 {
   "name": "bfn-proxy",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Boot Fidelity NodeJS-Proxy",
   "main": "index.js",
   "scripts": {
     "test": "echo \"no test specified\" && exit 0"
   },
   "author": "Blue Fidelity Inc. (https://www.bluefidelity.com/)",
-  "license": "ISC",
+  "license": "MIT",
+  "homepage": "https://www.bluefidelity.com/",
+  "maintainers": [
+    {
+      "email": "ouellettebrand@gmail.com",
+      "name": "brandouellette"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/BlueFidelity/bfn-proxy.git"
   },
+  "bugs": {
+    "url": "https://github.com/BlueFidelity/bfn-proxy/issues"
+  },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash.omit": "^4.5.0"
+  },
+  "devDependencies": {
+    "express": "^4.15.4"
   },
   "keywords": [
     "proxy",

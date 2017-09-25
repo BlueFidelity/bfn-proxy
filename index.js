@@ -2,7 +2,7 @@
 var url = require('url'),
 http = require('http'),
 https = require('https'),
-_ = require('lodash');
+omit = require('lodash.omit');
 
 function sendError(response, status_code, status_msg){
 		response.writeHead(status_code, status_msg, {'content-length': status_msg.length, 'content-type': 'text/html'});
@@ -67,7 +67,7 @@ module.exports = function(opts){
 		var scheme = (uri_match[1]) ? uri_match[1] : ( request.headers['x-forwarded-proto'] || 'http' );
 		var options = url.parse('/'+uri_match[2], false, true);
 		if (!options.host) return sendError(response, 404, 'Not Found');
-		var headers = _.omit(request.headers, 'request', 'cookie', 'host', 'origin', 'connection', 'referer', 'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-port', 'x-request-start', 'x-request-id', 'via');
+		var headers = omit(request.headers, 'request', 'cookie', 'host', 'origin', 'connection', 'referer', 'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-port', 'x-request-start', 'x-request-id', 'via');
 		if (set_referer) headers['referer'] = 'http'+ (scheme == 'http' ? '' : 's') +':'+ set_referer;
 		options.headers = headers;
 		options.method = request.method;
