@@ -36,7 +36,10 @@ function doAPI(other_uri_match, request, response){
 }
 
 module.exports = function(opts){
-	opts = opts || {};
+	if (typeof opts !== 'object') opts = {};
+	var omit_headers = ['request', 'host', 'connection', 'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-port', 'x-request-start', 'x-request-id'];
+	if (typeof opts['omit_headers'] === 'undefined') omit_headers = omit_headers.concat(['cookie', 'origin', 'referer', 'via']);
+	else if (Array.isArray(opts['omit_headers'])) omit_headers = omit_headers.concat(opts['omit_headers']);
 	return function(request, response){
 		var uri_match = request.url.match('^/?(?://(https?):)?/?(/[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.*)$'), set_referer = null;
 		if (!uri_match) {
@@ -50,7 +53,8 @@ module.exports = function(opts){
 						return doAPI(other_uri_match[1], request, response);
 					}
 				} else {
-					var ref_uri_match = request.headers.referer.match('^(?:https?\\://[a-zA-Z0-9_\\.\\-\\:]+)/?(?:pxy)?(?://(https?):)?/?(/[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.*)$');
+					var base_uri = request.baseUrl ? '(?:'+ request.baseUrl.replace(/^\/+|\/+$/g,'').replace(/[\-\[\]\{\}\(\)\*\+\?\.\\\^\$\|]/g,"\\$&") +')?' : '';
+					var ref_uri_match = request.headers.referer.match('^(?:https?\\://[a-zA-Z0-9_\\.\\-:]+)/?'+base_uri+'(?://(https?):)?/?(/[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}/.*)$');
 					if (!ref_uri_match) return sendError(response, 404, 'Not found');
 					uri_match = ref_uri_match;
 					set_referer = uri_match[2];
@@ -67,11 +71,12 @@ module.exports = function(opts){
 		var scheme = (uri_match[1]) ? uri_match[1] : ( request.headers['x-forwarded-proto'] || 'http' );
 		var options = url.parse('/'+uri_match[2], false, true);
 		if (!options.host) return sendError(response, 404, 'Not Found');
-		var headers = omit(request.headers, 'request', 'cookie', 'host', 'origin', 'connection', 'referer', 'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-port', 'x-request-start', 'x-request-id', 'via');
+		var headers = omit(request.headers, omit_headers);
 		if (set_referer) headers['referer'] = 'http'+ (scheme == 'http' ? '' : 's') +':'+ set_referer;
 		options.headers = headers;
 		options.method = request.method;
 		options.agent = false;
+		options.timeout = 8000;
 		var req = (scheme == 'http' ? http : https).request(options, function(res) {
 			if (res.statusCode && res.headers) {
 				if ( res.statusCode >= 200 && res.statusCode <= 299 ) {
