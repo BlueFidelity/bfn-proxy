@@ -7,6 +7,14 @@
 
 Designed to be the simplest way possible to proxy http calls.
 
+## Features
+
+  * Small footprint
+  * Responses are unmodified
+  * Built for browser use (url-relative/root-relative resources work)
+  * Great for testing your website at proxy location
+  * Great for grabbing a screen shot of your website from proxy location
+
 ## Install
 
 ```
