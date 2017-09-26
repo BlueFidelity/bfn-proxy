@@ -1,34 +1,9 @@
 {
   "name": "bfn-proxy",
-  "version": "1.2.0",
-  "description": "Boot Fidelity NodeJS-Proxy",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
+  "version": "1.2.1",
+  "description": "HTTP request proxy middleware for node.js",
   "author": "Blue Fidelity Inc. (https://www.bluefidelity.com/)",
   "license": "MIT",
-  "homepage": "https://www.bluefidelity.com/",
-  "maintainers": [
-    {
-      "email": "ouellettebrand@gmail.com",
-      "name": "brandouellette"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/BlueFidelity/bfn-proxy.git"
-  },
-  "bugs": {
-    "url": "https://github.com/BlueFidelity/bfn-proxy/issues"
-  },
-  "dependencies": {
-    "lodash.omit": "^4.5.0"
-  },
-  "devDependencies": {
-    "express": "^4.15.4",
-    "mocha": "^3.5.3"
-  },
   "keywords": [
     "proxy",
     "endpoint",
@@ -40,5 +15,23 @@
     "response",
     "stream",
     "server"
-  ]
+  ],
+  "homepage": "https://www.bluefidelity.com/",
+  "maintainers": [
+    {
+      "email": "ouellettebrand@gmail.com",
+      "name": "brandouellette"
+    }
+  ],
+  "repository": "BlueFidelity/bfn-proxy",
+  "dependencies": {
+    "lodash.omit": "^4.5.0"
+  },
+  "devDependencies": {
+    "express": "^4.15.4",
+    "mocha": "^3.5.3"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
 }

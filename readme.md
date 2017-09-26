@@ -1,6 +1,7 @@
 # bfn-proxy
 
-[![Build Status](https://secure.travis-ci.org/BlueFidelity/bfn-proxy.png)](http://travis-ci.org/BlueFidelity/bfn-proxy)
+[![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
 
 ## Super simple to use
 
