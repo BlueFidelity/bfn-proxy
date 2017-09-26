@@ -1,6 +1,6 @@
 # bfn-proxy
 
-> Boot Fidelity NodeJS-Proxy
+[![Build Status](https://secure.travis-ci.org/BlueFidelity/bfn-proxy.png)](http://travis-ci.org/BlueFidelity/bfn-proxy)
 
 
 ## Super simple to use
