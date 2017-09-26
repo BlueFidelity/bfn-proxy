@@ -1,10 +1,10 @@
 {
   "name": "bfn-proxy",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Boot Fidelity NodeJS-Proxy",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"no test specified\" && exit 0"
+    "test": "mocha"
   },
   "author": "Blue Fidelity Inc. (https://www.bluefidelity.com/)",
   "license": "MIT",
@@ -26,7 +26,8 @@
     "lodash.omit": "^4.5.0"
   },
   "devDependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "mocha": "^3.5.3"
   },
   "keywords": [
     "proxy",
