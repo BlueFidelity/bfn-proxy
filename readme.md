@@ -68,3 +68,12 @@ app.use('/pxy/', function (req, res, next) {
 
 - Improve everything
 
+# License
+
+[MIT](LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/bfn-proxy.svg
+[npm-url]: https://npmjs.org/package/bfn-proxy
+[travis-image]: https://img.shields.io/travis/BlueFidelity/bfn-proxy/master.svg
+[travis-url]: https://travis-ci.org/BlueFidelity/bfn-proxy
+
