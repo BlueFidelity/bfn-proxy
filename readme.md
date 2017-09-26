@@ -3,6 +3,8 @@
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 
+> HTTP request proxy middleware for node.js
+
 ## Super simple to use
 
 Designed to be the simplest way possible to proxy http calls.
