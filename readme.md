@@ -2,7 +2,6 @@
 
 [![Build Status](https://secure.travis-ci.org/BlueFidelity/bfn-proxy.png)](http://travis-ci.org/BlueFidelity/bfn-proxy)
 
-
 ## Super simple to use
 
 Designed to be the simplest way possible to proxy http calls.
