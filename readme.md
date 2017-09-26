@@ -1,9 +1,8 @@
 # bfn-proxy
+> HTTP request proxy middleware for node.js
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
-
-> HTTP request proxy middleware for node.js
 
 ## Super simple to use
 
