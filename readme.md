@@ -28,7 +28,9 @@ $ npm install --save bfn-proxy
 Simple app.  If created on heroku, go to https://applicationname.herokuapp.com/twitter.com/
 
 ```js
-require('http').createServer(require('bfn-proxy')()).listen(process.env.PORT||8080)
+require('http')
+.createServer(require('bfn-proxy')())
+.listen(process.env.PORT||8080)
 ```
 
 ### express/connect simple
@@ -55,7 +57,9 @@ var pxy = require('bfn-proxy')()
 var app = express()
 
 app.use('/pxy/', function (req, res, next) {
-	if (req.connection.remoteAddress !== '127.0.0.1') return next(new Error('Bad authentication data'))
+	if (req.connection.remoteAddress !== '127.0.0.1') {
+		return next(new Error('Bad authentication data'))
+	}
 	pxy(req, res) 
 })
 ```
