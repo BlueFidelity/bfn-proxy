@@ -1,2 +1,5 @@
-node_modules
-dbg
+coverage/
+node_modules/
+dbg/
+npm-debug.log
+package-lock.json

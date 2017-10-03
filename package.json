@@ -1,6 +1,6 @@
 {
   "name": "bfn-proxy",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "HTTP request proxy middleware for node.js",
   "author": "Blue Fidelity Inc. (https://www.bluefidelity.com/)",
   "license": "MIT",
@@ -28,10 +28,25 @@
     "lodash.omit": "^4.5.0"
   },
   "devDependencies": {
-    "express": "^4.15.4",
-    "mocha": "^3.5.3"
+    "eslint": "3.19.0",
+    "eslint-config-standard": "10.2.1",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-markdown": "1.0.0-beta.6",
+    "eslint-plugin-node": "5.1.1",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-standard": "3.0.1",
+    "istanbul": "0.4.5",
+    "mocha": "2.5.3",
+    "split": "1.0.1",
+    "supertest": "1.1.0"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "mocha"
+    "lint": "eslint --plugin markdown --ext js,md .",
+    "test": "mocha --check-leaks --reporter spec --bail",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --check-leaks --reporter dot",
+    "test-travis": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --check-leaks --reporter spec"
   }
 }

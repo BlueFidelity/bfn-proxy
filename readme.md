@@ -3,6 +3,7 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
 
 Designed to be the simplest way possible to proxy http calls.
 
@@ -28,8 +29,8 @@ Simple app.  If created on heroku, go to https://applicationname.herokuapp.com/t
 
 ```js
 require('http')
-.createServer(require('bfn-proxy')())
-.listen(process.env.PORT||8080)
+  .createServer(require('bfn-proxy')())
+  .listen(process.env.PORT || 8080)
 ```
 
 ### express/connect simple
@@ -56,10 +57,10 @@ var pxy = require('bfn-proxy')()
 var app = express()
 
 app.use('/pxy/', function (req, res, next) {
-	if (req.connection.remoteAddress !== '127.0.0.1') {
-		return next(new Error('Bad authentication data'))
-	}
-	pxy(req, res) 
+  if (req.connection.remoteAddress !== '127.0.0.1') {
+    return next(new Error('Bad authentication data'))
+  }
+  pxy(req, res)
 })
 ```
   
@@ -75,4 +76,6 @@ app.use('/pxy/', function (req, res, next) {
 [npm-url]: https://npmjs.org/package/bfn-proxy
 [travis-image]: https://img.shields.io/travis/BlueFidelity/bfn-proxy/master.svg
 [travis-url]: https://travis-ci.org/BlueFidelity/bfn-proxy
+[coveralls-image]: https://img.shields.io/coveralls/BlueFidelity/bfn/master.svg
+[coveralls-url]: https://coveralls.io/r/BlueFidelity/bfn?branch=master
 
