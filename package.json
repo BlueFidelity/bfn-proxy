@@ -1,6 +1,6 @@
 {
   "name": "bfn-proxy",
-  "version": "1.6.4",
+  "version": "2.0.0",
   "description": "HTTP request proxy middleware for node.js",
   "author": "Blue Fidelity Inc. (https://www.bluefidelity.com/)",
   "license": "MIT",
@@ -18,16 +18,7 @@
   ],
   "homepage": "https://www.bluefidelity.com/",
   "repository": "BlueFidelity/bfn-proxy",
-  "dependencies": {
-    "feedparser": "^2.2.10",
-    "html-to-text": "^5.1.1",
-    "iconv-lite": "^0.4.24",
-    "jsurl": "^0.1.5",
-    "lodash": "^4.17.11",
-    "lodash.omit": "^4.5.0",
-    "lodash.pickby": "^4.5.0",
-    "request": "^2.88.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "3.19.0",
     "eslint-config-standard": "10.2.1",
